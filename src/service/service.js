@@ -6,14 +6,14 @@ const options = {
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNTc2NzBmMzExOWVmNDc5ODFjMDljYmYxY2IzZDJkMSIsInN1YiI6IjY1ODJhNGVjNTViYzM1NTcxNTE3YjQ0MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FGASUnS6pTqDNKCG13-tA5RbW9nYFMwY9-2qdwNpLWo'
   }
 };
-axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
+export default axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 axios.defaults.params = {
   include_adult: false,
-  language: 'en-US',
+  language: 'uk',
 };
 //----------------------------------------------------
 export const getTrending = async () => {
-  const { data } = await axios.get('trending/all/day', options)
+  const { data } = await axios.get('/trending/all/week', options)
   console.log(data);
   return data;
 };

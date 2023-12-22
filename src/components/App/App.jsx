@@ -1,18 +1,22 @@
-// import { getImages } from '../../../src/service/service';
+import React, { lazy, Suspense } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+// import { Home, Movies, MovieDetail } from 'pages';
+import { Header, Section, Container, Text } from 'components';
+import Layout from 'Layout/Layout';
+
+const Home = lazy(() => import('../../pages/Home'));
+const Movies = lazy(() => import('../../pages/Movies'));
 
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      {/* <getImages /> */}
-    </div>
+    <Suspense>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="movies" element={<Movies />} />
+        </Route>
+        <Route path="*" element={<h1>404</h1>} />
+      </Routes>
+    </Suspense>
   );
 };
