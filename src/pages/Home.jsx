@@ -21,7 +21,7 @@ const Home = () => {
     };
     dataTrending();
   }, []);
-
+  console.log(isLoading);
   return (
     <Container>
       <h1>У тренді</h1>
