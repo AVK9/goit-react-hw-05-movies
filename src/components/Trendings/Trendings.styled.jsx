@@ -35,3 +35,9 @@ export const Card = styled.div`
   border-radius: ${({ theme }) => theme.spacing(4)};
   overflow: hidden;
 `;
+export const Img = styled.img`
+  /* width: 200px; */
+  height: 300px;
+  overflow: hidden;
+  object-fit: cover;
+`;

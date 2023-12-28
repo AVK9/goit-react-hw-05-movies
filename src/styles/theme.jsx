@@ -6,7 +6,7 @@ export const theme = Object.freeze({
     light: '#f2f2f2',
     dark: '#212121',
     primary: '#49a09d',
-    mainBackground: ['linear-gradient(to top, #abbaab, #fff)'],
+    // mainBackground: ['linear-gradient(to top, #abbaab, #fff)'],
   },
   fontSizes: {
     small: '14px',

@@ -1,4 +1,5 @@
 import axios from 'axios';
+const API_KEY = 'd57670f3119ef47981c09cbf1cb3d2d1';
 const options = {
   method: 'GET',
   headers: {
@@ -14,28 +15,29 @@ axios.defaults.params = {
 //----------------------------------------------------
 export const getTrending = async () => {
   const { data } = await axios.get('/trending/all/week', options)
-  console.log(data);
   return data;
 };
 // getTrending()
 //----------------------------------------------------
 export const searchMovies = async (query, page) => {
   const { data } = await axios.get(`/search/movie?query=${query}&page=${page}`, options)
-  console.log(data);
   return data;
 };
 // searchMovies('Cat', 3)
 //----------------------------------------------------
 export const getMovieDetails = async (movie_id) => {
   const { data } = await axios.get(`/movie/${movie_id}`, options)
-  console.log(data);
   return data;
 };
 // getMovieDetails(695721)
 //----------------------------------------------------
-export const getMovieCredits = async (movie_id, page) => {
-  const { data } = await axios.get(`/movie/${movie_id}/reviews?page=${page}`, options)
-  console.log(data);
+export const getMovieCredits = async (movie_id) => {
+  const { data } = await axios.get(`/movie/${movie_id}/credits?`, options)
   return data;
 };
-// getMovieCredits(695721, 1)
+// getMovieCredits(695721)
+//----------------------------------------------------
+export const getMovieReviews = async (movie_id) => {
+  const { data } = await axios.get(`${axios.defaults.baseURL}/movie/${movie_id}/reviews?api_key=${API_KEY}`)
+  return data;
+};

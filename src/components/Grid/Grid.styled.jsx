@@ -8,9 +8,6 @@ export const Grid = styled.ul`
   gap: ${({ theme }) => theme.spacing(5)};
 `;
 
-// export const GridItem = styled.li`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-// `;
+export const Head = styled.h1`
+  color: ${({ theme }) => theme.colors.dark};
+`;

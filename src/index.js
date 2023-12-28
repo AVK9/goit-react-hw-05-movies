@@ -3,17 +3,17 @@ import ReactDOM from 'react-dom/client';
 import { Global, ThemeProvider } from '@emotion/react';
 import 'modern-normalize';
 import { BrowserRouter } from "react-router-dom";
-
-import { App } from 'components';
 import { GlobalStyles, theme } from 'styles';
 
+import { App } from 'components';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter basename="/goit-react-hw-05-movies">
     <ThemeProvider theme={theme}>
       <Global styles={GlobalStyles} />
       <App />
       </ThemeProvider>
       </BrowserRouter>
-   </React.StrictMode>
+  //  </React.StrictMode>
 );

@@ -11,7 +11,6 @@ import {
 } from './Header.styled';
 import { Container } from 'components';
 import { useTheme } from '@emotion/react';
-// import { Outlet } from 'react-router-dom';
 
 export const Header = () => {
   const theme = useTheme();

@@ -1,21 +1,22 @@
-import { RotatingLines } from 'react-loader-spinner';
+import { Bars } from 'react-loader-spinner';
 
 export const Loader = () => {
   return (
-    <div>
-      render(
-      <RotatingLines
-        visible={true}
-        height="96"
-        width="96"
-        color="grey"
-        strokeWidth="5"
-        animationDuration="0.75"
-        ariaLabel="rotating-lines-loading"
-        wrapperStyle={{}}
+    <>
+      <Bars
+        height="100"
+        width="100"
+        color="#920125"
+        ariaLabel="bars-loading"
         wrapperClass=""
+        visible={true}
+        wrapperStyle={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+        }}
       />
-      );
-    </div>
+    </>
   );
 };

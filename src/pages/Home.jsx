@@ -1,12 +1,13 @@
 import { getTrending } from '../service/service';
-import { Grid, Container } from 'components';
+import { Grid, Container, Loader, Head } from 'components';
 import { Trendings } from 'components';
 import { useEffect, useState } from 'react';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [Trending, setTrending] = useState([]);
+  const [error, setError] = useState(null);
   useEffect(() => {
     const dataTrending = async () => {
       setIsLoading(true);
@@ -14,26 +15,32 @@ const Home = () => {
         const data = await getTrending();
         setTrending(data.results);
       } catch (error) {
-        console.log(error);
+        setError(error.message);
+        toast.error(error.message);
       } finally {
         setIsLoading(false);
       }
     };
     dataTrending();
   }, []);
-  console.log(isLoading);
   return (
     <Container>
-      <h1>У тренді</h1>
+      {(!error && <Head>У тренді</Head>) || <Head>{error}</Head>}
+
       <Grid>
-        {Trending.map(({ id, title, name, poster_path }) => (
-          <Trendings
-            key={id}
-            title={title}
-            name={name}
-            poster_path={poster_path}
-          />
-        ))}
+        {isLoading && <Loader />}
+        {!isLoading &&
+          Trending.length !== 0 &&
+          Trending.map(({ id, title, name, poster_path, backdrop_path }) => (
+            <Trendings
+              key={id}
+              title={title}
+              name={name}
+              id={id}
+              poster_path={poster_path}
+              backdrop_path={backdrop_path}
+            />
+          ))}
       </Grid>
     </Container>
   );
